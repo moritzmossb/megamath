@@ -8,27 +8,19 @@
 \usepackage{prettytex/math-theorems}
 \usepackage{prettytex/math-sigtrans}
 \usepackage{prettytex/gfx-components}
+\usepackage{lastpage}
 
 \author{Moritz Mossböck \\ Peter Walder}
 \title{Mathematics Collection}
 \date{Since 2022}
 
-\usepackage{lastpage}
-
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage  \pageref{LastPage}}
 
-\newcounter{savepage}
-
-
-\usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/]
 
 \begin{document}
     \input{intro}
-
-    \newpart{Fundamentals of Mathematics}
-
     \chapter{Logic and Set Theory}
     \include{fundamentals/1_logic}
 \end{document}
