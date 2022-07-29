@@ -18,13 +18,17 @@
 \fancyhf{}
 \fancyfoot[LE,RO]{\thepage  \pageref{LastPage}}
 
+\newcounter{savepage}
+
+
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/]
 
 \begin{document}
     \input{intro}
 
-    \part{Fundamentals of Mathematics}
+    \newpart{Fundamentals of Mathematics}
+
     \chapter{Logic and Set Theory}
     \include{fundamentals/1_logic}
 \end{document}
