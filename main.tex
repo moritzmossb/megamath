@@ -8,6 +8,7 @@
 \usepackage{prettytex/math-sigtrans}
 \usepackage{prettytex/gfx-components}
 \usepackage{lastpage}
+\usepackage[inline]{showlabels}
 
 \author{Moritz Mossböck \\ Peter Waldert}
 \title{Mathematics Collection}
@@ -16,22 +17,30 @@
 \fancyhf{}
 \fancyhead[LE,RO]{\leftmark}
 \fancyhead[RE,LO]{\rightmark}
-\fancyfoot[LE,RO]{\thepage \pageref{LastPage}}
-\fancyfoot[RO,LE]{Mathematics Collection}
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[RE,LO]{Mathematics Collection}
 \renewcommand{\headrulewidth}{0.25pt}
 \renewcommand{\footrulewidth}{0.25pt}
-\pagestyle{fancy}
 
 \tikzexternalize[prefix=tikz/]
+\pagenumbering{arabic}
 
 \begin{document}
-
+    \pagestyle{empty}
     \begin{titlepage}
         \maketitle
     \end{titlepage}
 
+    \input{abstract}
 
+    \pagestyle{fancy}
+    \pagenumbering{roman}
+    \tableofcontents
+
+    \newpage
+    \pagenumbering{arabic}
     \input{intro}
-    \chapter{Logic and Set Theory}
+    \chapter{Logic and Set Theory}\label{chp:logic_set}
     \include{fundamentals/1_logic}
+    \include{fundamentals/2_set}
 \end{document}
