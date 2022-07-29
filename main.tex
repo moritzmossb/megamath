@@ -1,6 +1,5 @@
 \documentclass{report}
 
-
 \usepackage{prettytex/base}
 \usepackage{prettytex/math}
 \usepackage{prettytex/gfx}
@@ -12,14 +11,26 @@
 
 \author{Moritz Mossböck \\ Peter Waldert}
 \title{Mathematics Collection}
-\date{Since 2022}
+\date{Since July 2022}
 
 \fancyhf{}
-\fancyfoot[LE,RO]{\thepage  \pageref{LastPage}}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{\rightmark}
+\fancyfoot[LE,RO]{\thepage \pageref{LastPage}}
+\fancyfoot[RO,LE]{Mathematics Collection}
+\renewcommand{\headrulewidth}{0.25pt}
+\renewcommand{\footrulewidth}{0.25pt}
+\pagestyle{fancy}
 
 \tikzexternalize[prefix=tikz/]
 
 \begin{document}
+
+    \begin{titlepage}
+        \maketitle
+    \end{titlepage}
+
+
     \input{intro}
     \chapter{Logic and Set Theory}
     \include{fundamentals/1_logic}
