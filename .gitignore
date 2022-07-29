@@ -24,3 +24,6 @@ lib64
 *.theorem
 *.thm
 __pycache__
+*.bcf
+*.out
+*.run.xml

@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=0.75]
+        \draw[dashed,gray] (-3.1415,2) -- (0,2) node[midway,below]{$c$};
+        \draw (-3.5,-0.5) -- (0.5,-0.5);
+        \draw[red,thick,Parenthesis-Parenthesis] (-3.1415,-0.5) -- (0,-0.5) node[midway,below]{$D$};
+        \begin{scope}
+            \clip (-3.1415,-0.5) rectangle (0,2.1);
+            \draw[blue,fill=white] (-3.1415,0) circle (0.085cm);
+            \draw[blue,fill=white] (0,2) circle (0.085cm);
+        \end{scope}
+        \draw[dashed] (-3.1415,-0.6) -- (-3.1415,2.1);
+        \draw[dashed] (0,-0.6)node[below]{$x_0\not\in $} -- (0,2.1);
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+\documentclass{report}
+
+
+\usepackage{prettytex/base}
+\usepackage{prettytex/math}
+\usepackage{prettytex/gfx}
+\usepackage{prettytex/boxes}
+\usepackage{prettytex/math-theorems}
+\usepackage{prettytex/math-sigtrans}
+\usepackage{prettytex/gfx-components}
+
+\author{Moritz Mossböck \\ Peter Walder}
+\title{Mathematics Collection}
+\date{Since 2022}
+
+\usepackage{lastpage}
+
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage  \pageref{LastPage}}
+
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/]
+
+\begin{document}
+    \input{intro}
+
+    \part{Fundamentals of Mathematics}
+    \chapter{Logic and Set Theory}
+    \include{fundamentals/1_logic}
+\end{document}
