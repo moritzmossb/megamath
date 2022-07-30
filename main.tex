@@ -3,27 +3,31 @@
 \usepackage{prettytex/base}
 \usepackage{prettytex/math}
 \usepackage{prettytex/gfx}
+\usepackage{prettytex/todo}
 \usepackage{prettytex/boxes}
 \usepackage{prettytex/math-theorems}
 \usepackage{prettytex/math-sigtrans}
 \usepackage{prettytex/gfx-components}
 \usepackage{lastpage}
 \usepackage[inline]{showlabels}
+\usepackage{xparse}
+\usepackage[nameinlink,noabbrev]{cleveref}
 
 \author{Moritz Mossböck \\ Peter Waldert}
-\title{Mathematics Collection}
+\title{\textbf{Mathematics Collection}}
 \date{Since July 2022}
 
+\newcommand{\momo}{\href{mailto:moritz.mossboeck@gmail.com}{Moritz Mossböck}}
+
 \fancyhf{}
-\fancyhead[LE,RO]{\leftmark}
-\fancyhead[RE,LO]{\rightmark}
-\fancyfoot[LE,RO]{\thepage}
-\fancyfoot[RE,LO]{Mathematics Collection}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\rightmark}
+\fancyfoot[L]{\thepage}
+\fancyfoot[R]{Mathematics Collection}
 \renewcommand{\headrulewidth}{0.25pt}
 \renewcommand{\footrulewidth}{0.25pt}
 
 \tikzexternalize[prefix=tikz/]
-\pagenumbering{arabic}
 
 \begin{document}
     \pagestyle{empty}
@@ -43,4 +47,8 @@
     \chapter{Logic and Set Theory}\label{chp:logic_set}
     \include{fundamentals/1_logic}
     \include{fundamentals/2_set}
+
+    \chapter{Linear Algebra}\label{chp:linear_algebra}
+    \thispagestyle{empty}
+    \include{algebra/1_structures.tex}
 \end{document}

@@ -1,0 +1,78 @@
+\section{Algebraic Structures}\label{sec:alg_structures}
+
+\subsection*{Motivation}\label{ssec:alg_motivation}
+
+Although the following sections may seem like a quite boring sea of compact, unreadable equations and proofs, it forms
+the essence of a modern understanding of most mathematics used today, since it formalizes the relations that sets form
+with operations acting upon them. This leads to structures like groups, rings or fields, which allow for the 
+generalization of various viewpoints\footnote{although the most general viewpoint would be in fact 
+Category Theory} into an abstract form. 
+
+Coming from High School, algebra may just sound like solving 
+complicated equations, like $x^2 + 1 = 0$, which in fact forms the origin of the study.
+\improvement{\momo}{add more and better motivation}
+
+\subsection{Groups}\label{ssec:groups}
+
+\begin{definition}{Algebraical Structure}{alg_struct}
+    Let $X$ be a set and $\circ\colon X^2\subj X$. We call $(X,\circ)$ an algebraic structure, iff
+    \begin{align}
+        \forall x_1,x_2 \in X\colon x_1\circ x_2 \in X.\label{eq:def_alg_struct}
+    \end{align}
+\end{definition}
+
+Algebraic structures are a very broad and basic structure, the fundamental idea of group theory and everything that 
+is build upon it. A trivial simple example is $(\N,+)$, where $+$ denotes regular addition. Contrasting that, 
+$(\N,-)$, with regular subtractions is not an algebraic structure, since $\exists x_1,x_2\in\N\colon x_1-x_2\not\in\N$,
+i.e. $1-2\not\in\N$. Hence given any set $X$ paired with an operation $\circ\colon X^2\subj X$, one should prove that
+$(X,\circ)$ forms an algebraic structure, in order to apply any general proofs or methods. If $(X,\circ)$ is 
+an algebraic structure, then we call $X$ closed under $\circ$. There is no standardized notation for this 
+circumstance, hence if this is the case, you might want to state closure under $\circ$ at the beginning of your 
+work. In order to prove that $X$ is closed under $\circ$, one might negate \cref{eq:def_alg_struct}, yielding
+\begin{align}
+    \exists x_1,x_2\in X\colon x_1\circ x_2\not\in X.\label{eq:neg_def_alg_struct}
+\end{align}
+Hence, if proving $(X,\circ)$ is an algebraic structure, we find a pair $x_1,x_2\in X$, where $x_1\circ x_2\not\in X$,
+i.e. $2-1$. Generally, when you need to prove such general properties, using a contradiction is the proper method, since
+finding a counterexample is most of the times a lot easier than proving said property for all elements of $X$.
+
+Given an algebraic structure $(X,\circ)$, one might find triplets $(x_1,x_2,x_2)\in X^3$, where 
+$(x_1\circ x_2) \circ x_3 = x_1\circ (x_2\circ x_3)$.\improvement{\momo}{write more intro about associativity}
+
+\begin{definition}{Associativity and Half-Groups}{associativity}
+    Let $(X,\circ)$ be an algebraic structure. We call $\circ$ associative, iff
+    \begin{align}
+        \forall x_1,x_2,x_3 \in X \colon (x_1\circ x_2) \circ x_3 = x_1 \circ (x_2 \circ x_3).\label{eq:def_associativity}
+    \end{align}
+    We then call $(X,\circ)$ a half-group.
+\end{definition}
+
+Half groups are the most basic structure, that are actually useful and have some\footnote{although very limited} use 
+in e.g. linear algebra\footnote{like $(\F^{m\times n},\cdot)$ with the regular matrix multiplication}.
+
+\begin{theorem}{Associativity of Set Operations}{set_op_assoc}
+    Let $X$ be a set, then the following structures are half-groups:
+    \begin{equation}
+        \begin{aligned}
+            &(\mathcal{P}(X),\cap)\\
+            &(\mathcal{P}(X),\cup)\\
+            &(\mathcal{P}(X),\triangle)\\
+        \end{aligned}\label{eq:assoc_set_ops}
+    \end{equation}
+    and $(\mathcal{P}(X),\setminus)$ is just algebraic.
+\end{theorem}
+\begin{proof}[Proof for \autoref{thm:set_op_assoc}]\label{proof:assoc_set_ops}
+    We already proved in \change{\momo}{add reference for proof} that $\cap$, $\cup$ and $\triangle$ are associative,
+    and $\setminus$ is not. Hence we only have to prove that 
+    $\forall Y_1,Y_2\in\mathcal{P}(X)\colon Y_1\circ Y_2\in\mathcal{P}(X)$.
+    \begin{align*}
+        &Y_1\cap Y_2 = Y\qquad (\forall y\in Y\colon y\in Y_1\wedge y\in Y_2) \wedge (\forall y_1\in Y_1,y_2\in Y_2
+        \colon y_1\in X\wedge y_2\in X)\implies \forall y\in Y\colon y\in X\\
+        &Y_1\cup Y_2 = Y\qquad (\forall y\in Y\colon y\in Y_1\vee y\in Y_2)\wedge (\forall y_1\in Y_1,y_2\in Y_2
+        \colon y_1\in X\wedge y_2\in X)\implies \forall y\in Y\colon y\in X\\
+        &Y_1\triangle Y_2 = Y\qquad (\forall y\in Y\colon (y\in Y_2\setminus Y_1)\vee (y\in Y_1\setminus Y_2))
+        \implies \forall y\in Y\colon y\in X\\
+        &Y_1\setminus Y_2 = Y\qquad \forall y\in Y\colon y\in Y_1 \implies \forall y\in Y\colon y\in X\\
+        &Y_2\setminus Y_1 = Y\qquad \forall y\in Y\colon y\in Y_2 \implies \forall y\in Y\colon y\in X\\
+    \end{align*}
+\end{proof}
