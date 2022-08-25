@@ -17,7 +17,18 @@
 \title{\textbf{Mathematics Collection}}
 \date{Since July 2022}
 
+\newcommand*\twoheadrightarrowtail{\mathrel{\rightarrowtail\kern-1.9ex\twoheadrightarrow}}
+
+
+\renewcommand{\qedsymbol}{\col{blue}{q.e.d.}}
 \newcommand{\momo}{\href{mailto:moritz.mossboeck@gmail.com}{Moritz Mossböck}}
+\newcommand{\mathm}[1]{\MakeUppercase{#1}}
+
+\newcommand*\epimorph{\twoheadrightarrow}
+\newcommand*\monmorph{\rightarrowtail}
+\newcommand*\isomorph{\twoheadrightarrowtail}
+\newcommand*\Aut{\mathrm{Aut}}
+\newcommand*\End{\mathrm{End}}
 
 \fancyhf{}
 \fancyhead[L]{\leftmark}
@@ -51,4 +62,8 @@
     \chapter{Linear Algebra}\label{chp:linear_algebra}
     \thispagestyle{empty}
     \include{algebra/1_structures.tex}
+
+    \chapter{Real Analysis}\label{chp:real_analysis}
+    \thispagestyle{empty}
+    \include{analysis/1_sequences.tex}
 \end{document}

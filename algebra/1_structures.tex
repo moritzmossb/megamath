@@ -14,8 +14,8 @@ complicated equations, like $x^2 + 1 = 0$, which in fact forms the origin of the
 
 \subsection{Groups}\label{ssec:groups}
 
-\begin{definition}{Algebraical Structure}{alg_struct}
-    Let $X$ be a set and $\circ\colon X^2\subj X$. We call $(X,\circ)$ an algebraic structure, iff
+\begin{definition}{Magmata}{alg_struct}
+    Let $X$ be a set and $\circ\colon X^2\subj X$. We call $(X,\circ)$ an algebraic structure, or magma, iff
     \begin{align}
         \forall x_1,x_2 \in X\colon x_1\circ x_2 \in X.\label{eq:def_alg_struct}
     \end{align}
@@ -39,19 +39,19 @@ finding a counterexample is most of the times a lot easier than proving said pro
 Given an algebraic structure $(X,\circ)$, one might find triplets $(x_1,x_2,x_2)\in X^3$, where 
 $(x_1\circ x_2) \circ x_3 = x_1\circ (x_2\circ x_3)$.\improvement{\momo}{write more intro about associativity}
 
-\begin{definition}{Associativity and Half-Groups}{associativity}
+\begin{definition}{Associativity and Semi-Groups}{associativity}
     Let $(X,\circ)$ be an algebraic structure. We call $\circ$ associative, iff
     \begin{align}
         \forall x_1,x_2,x_3 \in X \colon (x_1\circ x_2) \circ x_3 = x_1 \circ (x_2 \circ x_3).\label{eq:def_associativity}
     \end{align}
-    We then call $(X,\circ)$ a half-group.
+    We then call $(X,\circ)$ a semi- (or half-) group.
 \end{definition}
 
-Half groups are the most basic structure, that are actually useful and have some\footnote{although very limited} use 
+Semi-groups are the most basic structure, that are actually useful and have some\footnote{although very limited} use 
 in e.g. linear algebra\footnote{like $(\F^{m\times n},\cdot)$ with the regular matrix multiplication}.
 
 \begin{theorem}{Associativity of Set Operations}{set_op_assoc}
-    Let $X$ be a set, then the following structures are half-groups:
+    Let $X$ be a set, then the following structures are semi-groups:
     \begin{equation}
         \begin{aligned}
             &(\mathcal{P}(X),\cap)\\
@@ -75,4 +75,20 @@ in e.g. linear algebra\footnote{like $(\F^{m\times n},\cdot)$ with the regular m
         &Y_1\setminus Y_2 = Y\qquad \forall y\in Y\colon y\in Y_1 \implies \forall y\in Y\colon y\in X\\
         &Y_2\setminus Y_1 = Y\qquad \forall y\in Y\colon y\in Y_2 \implies \forall y\in Y\colon y\in X\\
     \end{align*}
+    i.e. $(\mathcal{P}(X),\cap)$, $(\mathcal{P}(X),\cup)$, $(\mathcal{P}(X),\triangle)$ and $(\mathcal{P}(X),\setminus)$
+    are closed under their relative operation.
 \end{proof}
+
+Given $(\N,\cdot)$, where $\cdot$ is the common multiplication, we observe that there exists pairs $(a,b)\in\N^2$,
+where $a\cdot b = b$, which is the case for $a=1$. We call $1$ the left-neutral element of $\cdot$. In contrast, 
+$1$ is right-neutral if $b\cdot 1 = b$.
+
+\begin{definition}{Neutral Element and Monoids}{monoids}
+    Let $(X,\circ)$ be a semi-group. We call $e\in X$ neutral, if it is left- and right neutral, i.e.
+    $\forall x\in X\colon e\circ x = x = x\circ e$. If $X$ has a neutral element $e$, we call 
+    $(X,\circ)$ a monoid.
+\end{definition}
+
+\begin{theorem}{Uniqueness of Neutral Elements}{neutral_unique}
+    Let $(X,\circ)$ be a monoid with neutral element $e$, then $e$ is unique.
+\end{theorem}

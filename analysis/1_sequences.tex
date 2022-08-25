@@ -1,0 +1,58 @@
+\section{Numbers and Sequences}\label{sec:numb_sequ}
+
+Although we already introduced the concept of fields in \change{\momo}{add reference to chapter 2}, the number system
+we use today, i.e. the real numbers $\R$ are typically introduced in lectures about real analysis. Hence we follow this
+approach, as the concept of the reals encapsulates a good part of what we are trying to establish here. 
+
+\subsection{Establishing a Number System}\label{ssec:est_numb_sys}
+
+A number system is a set of numbers, typically infinite, which contains objects called numbers. The origin of numbers 
+lies in the counting of objects. Based on our observations on fields, we want to apply the properties of a field to 
+our number system. 
+
+\begin{definition}{Axioms of \mathm{peano}}{peano}
+    Let $s\colon\N\monmorph\N$ be the successor function:
+    \begin{itemize}
+        \item $1\in\N$
+        \item $\forall n\in\N\colon \exists n'\in\N\colon s(n) = s'$
+        \item $\not\exists n\in\N\colon s(n) = 1$
+        \item $\forall m,n\in\N\colon s(m) = s(n) \implies m = n$
+        \item $1\in X\wedge \forall x\in X\colon s(x)\in X\implies \N\subseteq X$
+    \end{itemize}
+\end{definition}
+
+The successor function $s$ is injective and produces the natural numbers by mapping $n\in\N$ to $n+1$, since 
+the successor of $n$ is $n+1$. These axioms lead directly to the method of Proof by Induction.
+
+\begin{definition}{Induction}{induction}
+    Let $\mathcal{P}(n)$ be a predicate where $n$ is element of some (ordered) index-family $I$, where 
+    $\forall k\in I\colon\mathcal{P}(k)$. If 
+    we can prove that $\forall n\in\N\colon\mathcal{P}(n) \implies \mathcal{P}(s(n))$, then 
+    $\exists \sigma\colon J\isomorph\N$.
+\end{definition}
+
+Proofs by induction are very powerful, since we can simply check whether $\mathcal{P}(n)\implies\mathcal{P}(n+1)$
+for $n\in J$. A very common example is the gaussian sum-formula:
+\begin{theorem}{Gaussian Sum Formula}{gauss_sum}
+    Let $n\in N$, then
+    \begin{equation}
+        \sum_{k= 1}^{n} k = \frac{n(n+1)}{2}\label{eq:gauss_sum}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    We first find $n_0\in\N\colon \mathcal{P}(n_0)$. Hence we test $n_0=1$:
+    \begin{align*}
+        &\sum_{k= 1}^{1} k = 1\\
+        &\frac{2}{2} = 1
+    \end{align*}
+    This checks out, so we may proof $\mathcal{P}(n)\implies\mathcal{P}(n+1)$, i.e.
+    \begin{align*}
+        \sum_{k= 1}^{n}k = \frac{n(n+1)}{2} \implies \sum_{k= 1}^{n+1}k = \frac{(n+1)(n+2)}{2}
+    \end{align*}
+    We use the fact, that we can split up sums into their summands:
+    \begin{align*}
+        &\sum_{k= 1}^{n+1}k = n+1 + \sum_{k= 1}^{n}k = n+1 + \frac{n(n+1)}{2} = \frac{2n+2+n^2+n}{2}
+        =\frac{(n+1)(n+2)}{2}
+    \end{align*}
+    Where the last equality follows by $(n+1)(n+2) = n^2+3n+2$.
+\end{proof}
