@@ -92,3 +92,10 @@ $1$ is right-neutral if $b\cdot 1 = b$.
 \begin{theorem}{Uniqueness of Neutral Elements}{neutral_unique}
     Let $(X,\circ)$ be a monoid with neutral element $e$, then $e$ is unique.
 \end{theorem}
+\begin{proof}[Proof for \autoref{thm:neutral_unique}]
+    Given a monoid $(X,\circ)$ with neutral elements $e,e'\in X$ it follows:
+    \begin{align*}
+        &e' = e'\circ e = e\\
+        &e = e\circ e' = e'
+    \end{align*}
+\end{proof}
