@@ -3,13 +3,13 @@
 \usepackage{prettytex/base}
 \usepackage{prettytex/math}
 \usepackage{prettytex/gfx}
-\usepackage[enable]{prettytex/todo}
+\usepackage[disable]{prettytex/todo}
 \usepackage{prettytex/boxes}
 \usepackage{prettytex/math-theorems}
 \usepackage{prettytex/math-sigtrans}
 \usepackage{prettytex/gfx-components}
 \usepackage{lastpage}
-\usepackage{showkeys}
+% \usepackage{showkeys}
 \usepackage{xparse}
 \usepackage[nameinlink,noabbrev]{cleveref}
 
@@ -17,26 +17,16 @@
 \title{\textbf{Mathematics Collection}}
 \date{Since July 2022}
 
-\newcommand*\twoheadrightarrowtail{\mathrel{\rightarrowtail\kern-1.9ex\twoheadrightarrow}}
-
 
 \renewcommand{\qedsymbol}{\col{blue}{q.e.d.}}
 \newcommand{\momo}{\href{mailto:moritz.mossboeck@gmail.com}{Moritz Mossböck}}
 \newcommand{\mathm}[1]{\MakeUppercase{#1}}
-
-\newcommand*\epimorph{\twoheadrightarrow}
-\newcommand*\monmorph{\rightarrowtail}
-\newcommand*\isomorph{\twoheadrightarrowtail}
-\newcommand*\Aut{\mathrm{Aut}}
-\newcommand*\End{\mathrm{End}}
 
 \fancyhf{}
 \fancyhead[L]{\leftmark}
 \fancyhead[R]{\rightmark}
 \fancyfoot[L]{\thepage}
 \fancyfoot[R]{Mathematics Collection}
-\renewcommand{\headrulewidth}{0.25pt}
-\renewcommand{\footrulewidth}{0.25pt}
 
 \tikzexternalize[prefix=tikz/]
 
@@ -59,7 +49,7 @@
     \include{fundamentals/1_logic}
     \include{fundamentals/2_set}
 
-    \chapter{Linear Algebra}\label{chp:linear_algebra}
+    \chapter{Algebra}\label{chp:algebra}
     \thispagestyle{empty}
     \include{algebra/1_structures.tex}
 
